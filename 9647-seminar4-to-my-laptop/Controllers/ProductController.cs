@@ -16,13 +16,13 @@ namespace _9647_seminar4_to_my_laptop.Controllers
     {
         // async Because we are connecting to API
         // Task<ActionsResults>
-
         // GET: Product
         public async Task<ActionResult> Index()
         {
             //Hosted web API REST Service base url
             string Baseurl = "https://localhost:44379";
             List<Product> ProdInfo = new List<Product>();
+            //we are using http package
             using (var client = new HttpClient())
             {
                 //Passing service base url
@@ -95,6 +95,7 @@ namespace _9647_seminar4_to_my_laptop.Controllers
         [HttpPost]
         public async Task<ActionResult> Create(Product product)
         {
+            //using try and catch
             try
             {
                 using (var client = new HttpClient())
@@ -124,7 +125,7 @@ namespace _9647_seminar4_to_my_laptop.Controllers
         }
 
 
-        // GET: Product/Edit/5
+        // Edit: Product/Edit/5
         public async Task<ActionResult> Edit(int id)
         {
             //Hosted web API REST Service base url
@@ -189,7 +190,7 @@ namespace _9647_seminar4_to_my_laptop.Controllers
             }
         }
 
-        // GET: Product/Delete/5
+        // Delete: Product/Delete/5
         public async Task<ActionResult> Delete(int id)
         {
             //Hosted web API REST Service base url
